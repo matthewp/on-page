@@ -1,0 +1,31 @@
+{
+  "name": "on-page",
+  "version": "0.1.0",
+  "description": "",
+  "main": "on-page.js",
+  "scripts": {
+    "test": "testee test/basics.html --browsers firefox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthewp/on-page.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/matthewp/on-page/issues"
+  },
+  "homepage": "https://github.com/matthewp/on-page#readme",
+  "files": [
+    "on-page.js"
+  ],
+  "dependencies": {
+    "bram": "^0.4.0-alpha.7",
+    "document-register-element": "^1.1.0",
+    "page.js": "^4.13.3"
+  },
+  "devDependencies": {
+    "mocha-test": "^1.0.3",
+    "webcomponents.js": "^0.7.22"
+  }
+}

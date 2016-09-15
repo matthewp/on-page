@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+  <title>Basics test</title>
+
+  <script src="../node_modules/webcomponents.js/webcomponents-lite.min.js" defer></script>
+  <link rel="import" href="../node_modules/mocha-test/mocha-test.html" defer>
+  <script src="./utils.js" defer></script>
+</head>
+<body>
+<iframe name="basics" src="./demo/basics.html"></iframe>
+<mocha-test>
+<template>
+  <script>
+    describe('<on-page> basics', function(){
+      var doc = basics.document;
+      var win = doc.defaultView;
+
+      after(function(){
+        //document.querySelector('[name=basics]').style.display = 'none';
+      });
+
+      it('Shows the default route by default', function(){
+        assert.ok(doc.querySelector('home-page'));
+      });
+
+      it('Shows the About page when link is clicked', function(){
+        var aboutLink = doc.querySelector('nav ul').firstElementChild.nextElementSibling.firstChild;
+        utils.click(aboutLink);
+
+        assert.ok(doc.querySelector('about-page'));
+        assert.equal(win.location.pathname, '/about');
+      });
+
+      it('Removes old route when moving to the next', function(){
+        var homeLink = doc.querySelector('nav ul').firstElementChild.firstChild;
+        utils.click(homeLink);
+
+        assert.ok(!doc.querySelector('about-page'));
+        assert.ok(doc.querySelector('home-page'));
+        assert.equal(win.location.pathname, '/');
+      });
+    });
+  </script>
+</template>
+</mocha-test>
+</body>
+</html>

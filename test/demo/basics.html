@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+  <title>&lt;on-page&gt;</title>
+
+  <script src="../../node_modules/bram/bram.js"></script>
+  <script src="../../node_modules/document-register-element/build/document-register-element.js"></script>
+  <script src="../../node_modules/page.js/page.js"></script>
+  <script src="../../on-page.js"></script>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/users/14">Matthew</a></li>
+    </ul>
+  </nav>
+
+  <on-page route="/" default>
+    <template>
+      <home-page :params="{{params}}"></home-page>
+    </template>
+  </on-page>
+  <on-page route="/about">
+    <template>
+      <about-page></about-page>
+    </template>
+  </on-page>
+  <on-page route="/users/:id">
+    <template>
+      <user-page :params="{{params}}"></user-page>
+    </template>
+  </on-page>
+
+<template id="home-template">
+  <h1>Home</h1>
+
+  <p>This is home! Welcome!</p>
+</template>
+<template id="about-template">
+  <h1>About</h1>
+
+  <p>This is about this page!</p>
+</template>
+<template id="user-template">
+  <h1>User</h1>
+  <h2>Name</h2>
+
+  <p>Welcome {{id}}, this is kind of cool</p>
+</template>
+<script>
+(function(){
+  var $ = document.querySelector.bind(document);
+  var homeTemplate = Bram.template($('#home-template'));
+  var aboutTemplate = Bram.template($('#about-template'));
+  var userTemplate = Bram.template($('#user-template'));
+
+  [
+    ['home-page', homeTemplate],
+    ['about-page', aboutTemplate],
+    ['user-page', userTemplate]
+  ].forEach(([tagName, template]) => {
+    class Page extends HTMLElement {
+      connectedCallback() {
+        var tree = template(this.params);
+        this.appendChild(tree);
+      }
+    }
+
+    customElements.define(tagName, Page);
+  });
+})();
+</script>
+</body>
+</html>
