@@ -24,6 +24,20 @@ This example uses [Bram](https://github.com/matthewp/bram) templates to pass the
 </on-page>
 ```
 
+## Install
+
+On **npm**
+
+```shell
+npm install on-page --save
+```
+
+On **Bower**
+
+```shell
+bower install on-page2 --save
+```
+
 ## License
 
 BSD 2 Clause

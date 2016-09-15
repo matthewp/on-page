@@ -1,0 +1,21 @@
+{
+  "name": "on-page",
+  "description": "A router, for web components",
+  "main": "on-page.js",
+  "authors": [
+    "Matthew Phillips <matthew@matthewphillips.info>"
+  ],
+  "license": "BSD-2-Clause",
+  "keywords": [
+    "web",
+    "components"
+  ],
+  "homepage": "https://github.com/matthewp/on-page",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
