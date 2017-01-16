@@ -25,6 +25,8 @@
     "page.js": "^4.13.3"
   },
   "devDependencies": {
+    "@webcomponents/custom-elements": "^1.0.0-alpha.3",
+    "@webcomponents/html-imports": "webcomponents/html-imports",
     "mocha-test": "^2.0.0"
   }
 }
