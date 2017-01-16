@@ -3,9 +3,9 @@
 <head>
   <title>&lt;on-page&gt;</title>
 
-  <script src="../../node_modules/bram/bram.js"></script>
-  <script src="../../node_modules/document-register-element/build/document-register-element.js"></script>
-  <script src="../../node_modules/page.js/page.js"></script>
+  <script src="../../node_modules/@webcomponents/custom-elements/custom-elements.min.js"></script>
+  <script src="../../bower_components/bram/bram.umd.js"></script>
+  <script src="../../bower_components/page/page.js"></script>
   <script src="../../on-page.js"></script>
 </head>
 <body>
@@ -63,7 +63,7 @@
   ].forEach(([tagName, template]) => {
     class Page extends HTMLElement {
       connectedCallback() {
-        var tree = template(this.params);
+        var tree = template(this.params).tree;
         this.appendChild(tree);
       }
     }

@@ -17,15 +17,16 @@
   },
   "homepage": "https://github.com/matthewp/on-page#readme",
   "files": [
-    "on-page.js"
+    "on-page.js",
+    "on-page.html"
   ],
   "dependencies": {
-    "bram": "^0.4.0-alpha.7",
-    "document-register-element": "^1.1.0",
+    "bram": "^0.6.0",
     "page.js": "^4.13.3"
   },
   "devDependencies": {
-    "mocha-test": "^1.0.3",
-    "webcomponents.js": "^0.7.22"
+    "@webcomponents/custom-elements": "^1.0.0-alpha.3",
+    "@webcomponents/html-imports": "webcomponents/html-imports",
+    "mocha-test": "^2.0.0"
   }
 }
