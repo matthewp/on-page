@@ -5,7 +5,7 @@
     factory({}, root.page, root.Bram);
   }
 }(this, function (exports, page, Bram) {
-  class OnPage extends HTMLElement {
+  class OnPage extends Bram.Element {
     static defineRoute(route, onPage) {
       var routes = this.routes;
       if(!routes) {
@@ -49,11 +49,7 @@
       this.setAttribute('route', val);
     }
 
-    connectedCallback() {
-      Bram.onChildren(this, () => this.setupRoute());
-    }
-
-    setupRoute() {
+    childrenConnectedCallback() {
       if(!this.routesDefined) {
         this.routesDefined = true;
         OnPage.defineRoute(this.route, this);
@@ -66,7 +62,7 @@
       var template = this.querySelector('template');
       var hydrate = Bram.template(template);
       var model = Bram.model(ctx);
-      var tree = hydrate(model);
+      var tree = hydrate(model).tree;
       this.appendChild(tree);
     }
 
