@@ -12,16 +12,6 @@ A router for web components. Render a template when the page matches a route. Wh
 
 This example uses [Bram](https://github.com/matthewp/bram) templates to pass the pages `params` to a few components. Support for other templating engines is coming soon.
 
-<!--
-```
-<custom-element-demo>
-  <template>
-    <link rel="import" href="./on-page.html">
-    <next-code-block></next-code-block>
-  </template>
-</custom-element-demo>
-```
--->
 ```html
 <nav>
   <ul>
